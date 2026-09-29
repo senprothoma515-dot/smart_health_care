@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Appointment Management</title>
+</head>
+
+<body>
+
+    <h1>Smart Health Care</h1>
+
+    <h2>Book Appointment</h2>
+
+    <form action="/add_appointment" method="POST">
+
+        <label>Patient Name:</label>
+        <input type="text" name="patient_name" required>
+        <br><br>
+
+        <label>Doctor Name:</label>
+        <input type="text" name="doctor_name" required>
+        <br><br>
+
+        <label>Appointment Date:</label>
+        <input type="date" name="appointment_date" required>
+        <br><br>
+
+        <label>Appointment Time:</label>
+        <input type="time" name="appointment_time" required>
+        <br><br>
+
+        <label>Status:</label>
+
+        <select name="status" required>
+            <option value="">Select Status</option>
+            <option value="Pending">Pending</option>
+            <option value="Confirmed">Confirmed</option>
+        </select>
+
+        <br><br>
+
+        <button type="submit">Book Appointment</button>
+
+    </form>
+
+
+    <br><br>
+
+    <h2>Appointment Records</h2>
+
+    <table border="1">
+
+        <tr>
+            <th>ID</th>
+            <th>Patient Name</th>
+            <th>Doctor Name</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Status</th>
+        </tr>
+
+        {% for appointment in appointments %}
+
+        <tr>
+            <td>{{ appointment[0] }}</td>
+            <td>{{ appointment[1] }}</td>
+            <td>{{ appointment[2] }}</td>
+            <td>{{ appointment[3] }}</td>
+            <td>{{ appointment[4] }}</td>
+            <td>{{ appointment[5] }}</td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+    <br>
+
+    <a href="/">
+        <button type="button">Back to Home</button>
+    </a>
+
+</body>
+
+</html>
